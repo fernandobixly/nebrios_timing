@@ -18,10 +18,10 @@ def mark_start(bag, prefix="", instant=None):
         try:
             bag.__setitem__(start_name, instant)
         except Exception as e:
-            raise Exception("Bag %s threw an exception during mark_start: %s" % bag, e)
+            raise Exception("Bag %s threw an exception during mark_start: %s" % (bag, e))
     else:
-        raise Exception("Invalid prefix type %s for %s. Only strings or lists of strings allowed.", type(prefix),
-                        prefix)
+        raise Exception("Invalid prefix type %s for %s. Only strings or lists of strings allowed." % (type(prefix),
+                        prefix))
 
 
 def mark_end(bag, prefix="", instant=None):
@@ -42,7 +42,7 @@ def mark_end(bag, prefix="", instant=None):
             elapsed_delta = instant - previous
             bag.__setitem__(elapsed_name, elapsed_delta.total_seconds())
         except Exception as e:
-            raise Exception("Bag %s threw an exception during mark_end: %s" % bag, e)
+            raise Exception("Bag %s threw an exception during mark_end: %s" % (bag, e))
     else:
-        raise Exception("Invalid prefix type %s for %s. Only strings or lists of strings allowed.", type(prefix),
-                        prefix)
+        raise Exception("Invalid prefix type %s for %s. Only strings or lists of strings allowed." % (type(prefix),
+                        prefix))
